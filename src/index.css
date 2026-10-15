@@ -1,0 +1,56 @@
+/* Importing Font */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap");
+
+@import "tailwindcss";
+@plugin './hero.js';
+@source '../node_modules/@heroui/theme/dist';
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-routeBlue: #00298d;
+  --color-border: #c9d5ff;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Cairo", sans-serif !important;
+}
+
+.container {
+  width: 85%;
+  margin-inline: auto;
+}
+
+@layer components {
+  .tabs-btn-active {
+    @apply flex w-full items-center gap-3 rounded-xl bg-[#e7f3ff] px-3 py-2 text-left text-sm font-bold text-[#1877f2] transition;
+  }
+  .tabs-btn {
+    @apply mt-1 flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm font-bold text-slate-700 transition hover:bg-slate-100;
+  }
+  .nav-link {
+    @apply relative flex items-center gap-1.5 rounded-xl px-2.5 py-2 text-sm font-extrabold text-slate-600 transition hover:bg-white/90 hover:text-slate-900 sm:gap-2 sm:px-3.5;
+  }
+  .nav-link-active {
+    @apply relative flex items-center gap-1.5 rounded-xl bg-white px-2.5 py-2 text-sm font-extrabold text-[#1f6fe5] transition sm:gap-2 sm:px-3.5;
+  }
+  .stat-icon-custom {
+    @apply text-[#FFDF20] transition-transform duration-300 hover:scale-110 me-0.5 inline-block text-[20px];
+  }
+  .card-custom {
+    @apply flex  p-4 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md shadow-xl transition-all duration-300 hover:bg-[color-mix(in_oklab,var(--color-white)_25%,transparent)];
+  }
+  .continue {
+    @apply relative flex items-center justify-center py-4
+                before:content-[''] before:flex-1 before:h-[1px] 
+                before:bg-gradient-to-r before:from-transparent before:to-gray-300
+                after:content-[''] after:flex-1 after:h-[1px] 
+                after:bg-gradient-to-l after:from-transparent after:to-gray-300;
+  }
+  .err-msg {
+    @apply text-start !text-[16px] font-normal !text-[#fb2c36];
+  }
+}
